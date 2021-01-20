@@ -56,5 +56,26 @@ class RomanNumeralTestMethods(unittest.TestCase):
         self.assertEquals(convertToRomanNumerals(57),'LVII')
         self.assertEquals(convertToRomanNumerals(59),'LIX')
     
+
+    def testLXXX(self):
+        self.assertEquals(convertToRomanNumerals(80),'LXXX')
+        self.assertEquals(convertToRomanNumerals(84),'LXXXIV')
+        self.assertEquals(convertToRomanNumerals(89),'LXXXIX')
+
+    def testXL(self):
+        self.assertEquals(convertToRomanNumerals(90),'XL')
+        self.assertEquals(convertToRomanNumerals(94),'XLIV')
+        self.assertEquals(convertToRomanNumerals(97),'XLVII')
+        self.assertEquals(convertToRomanNumerals(99),'XLIX')
+
+    def testC(self):
+        self.assertEquals(convertToRomanNumerals(100),'C')
+        self.assertEquals(convertToRomanNumerals(155),'CLV')
+        self.assertEquals(convertToRomanNumerals(209),'CCIX')
+        self.assertEquals(convertToRomanNumerals(344),'CCCXLIV')
+        self.assertEquals(convertToRomanNumerals(391),'CCCXLI')
+
+    
+
 if __name__ == '__main__':
     unittest.main()

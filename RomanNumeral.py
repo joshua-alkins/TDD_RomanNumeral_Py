@@ -1,10 +1,21 @@
 def convertToRomanNumerals(n):
     if type(n) != int:
         raise TypeError("Input must be an integer!")
+    
+    result=''
+    remainder = n
 
-    num_of_50 = n//50
-    remainder = n%50
-    result = 'L'*num_of_50
+    num_of_100 = remainder//100
+    remainder %= 100
+    result += 'C'*num_of_100
+
+    if remainder//90 == 1:
+        remainder %= 90
+        result += 'XL'
+
+    num_of_50 = remainder//50
+    remainder %= 50
+    result += 'L'*num_of_50
 
     num_of_10 = remainder//10
     remainder %= 10
