@@ -1,26 +1,29 @@
-# I=1, V=5, X=10, L=50, C=100, D=500, M=1000
-
 def convertToRomanNumerals(n):
     if type(n) != int:
         raise TypeError("Input must be an integer!")
 
-    conversions = [(50,'L'),(10,'X'),(5,'V'),(1,'I')]
+    num_of_50 = n//50
+    remainder = n%50
+    result = 'L'*num_of_50
 
-    result = ''
-    carry = n
+    num_of_10 = remainder//10
+    remainder %= 10
+    if num_of_10 == 4:
+        result += 'XL'
+    else:
+        result += 'X'*num_of_10
 
-    for i in range(len(conversions)):
-        num = conversions[i][0]
-        numeral = conversions[i][1]
+    if remainder == 9:
+        remainder = 0
+        result += 'IX'
 
-        number_of_numerals = carry // num 
-        carry = carry%num
+    num_of_5 = remainder//5
+    remainder %= 5
+    result += 'V'*num_of_5
 
-        result += numeral * number_of_numerals
-
-        if carry == num-1 and carry != 0 and num <= 10:
-            carry = 0
-            result += 'I'+numeral
-
+    if remainder == 4:
+        result += 'IV'
+    else:
+        result += 'I'*remainder
 
     return result

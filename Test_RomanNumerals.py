@@ -41,8 +41,12 @@ class RomanNumeralTestMethods(unittest.TestCase):
         self.assertEquals(convertToRomanNumerals(29),'XXIX')
         self.assertEquals(convertToRomanNumerals(30),'XXX')
 
-    def test40(self):
+    def testXL(self):
         self.assertEquals(convertToRomanNumerals(40),'XL')
+        self.assertEquals(convertToRomanNumerals(41),'XLI')
+        self.assertEquals(convertToRomanNumerals(44),'XLIV')
+        self.assertEquals(convertToRomanNumerals(49),'XLIX')
+
 
     def testL(self):
         self.assertEquals(convertToRomanNumerals(50),'L')
