@@ -5,13 +5,29 @@ def convertToRomanNumerals(n):
     result=''
     remainder = n
 
+    num_of_1000 = remainder//1000
+    remainder %= 1000
+    result += 'M'*num_of_1000
+
+    if remainder//900 == 1:
+        remainder %= 900
+        result += 'CM'
+
+    num_of_500 = remainder//500
+    remainder %= 500
+    result += 'D'*num_of_500
+
     num_of_100 = remainder//100
     remainder %= 100
-    result += 'C'*num_of_100
+
+    if num_of_100 == 4:
+        result += 'CD'
+    else:
+        result += 'C'*num_of_100
 
     if remainder//90 == 1:
         remainder %= 90
-        result += 'XL'
+        result += 'XC'
 
     num_of_50 = remainder//50
     remainder %= 50
